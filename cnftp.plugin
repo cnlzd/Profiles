@@ -140,7 +140,7 @@ http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.haidai\.lantern\.appc
 http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.huluwa\.dispatcher\.youthmode\.config2 script-path = https://rucu6.pages.dev/Scripts/cnftp.js, requires-body = true, tag = youku_青少年模式弹窗, enable = {youku}
 http-response ^https:\/\/acs\.youku\.com\/gw\/mtop\.youku\.soku\.yksearch script-path = https://rucu6.pages.dev/Scripts/cnftp.js, requires-body = true, tag = youku_搜索列表, enable = {youku}
 http-response ^https:\/\/push\.m\.youku\.com\/collect-api\/get_push_interval_config_wx\? script-path = https://rucu6.pages.dev/Scripts/cnftp.js, requires-body = true, tag = youku_热剧弹窗, enable = {youku}
-http-response ^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get script-path = https://rucu6.pages.dev/Scripts/cnftp.js, requires-body = true, tag = youku_开屏广告, enable = {youku}
+http-response ^https:\/\/un-acs\.youku\.com\/gw\/mtop\.youku\.play\.ups\.appinfo\.get script-path = https://raw.githubusercontent.com/cnlzd/Profiles/refs/heads/loon/cnftp.js, requires-body = true, tag = youku_开屏广告, enable = {youku}
 
 [MITM]
 hostname = -i.vip.iqiyi.com, *.iqiyi.com, *.mgtv.com, vv.video.qq.com, acs.youku.com, push.m.youku.com, un-acs.youku.com
