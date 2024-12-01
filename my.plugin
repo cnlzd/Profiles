@@ -1,4 +1,12 @@
-
+#!name=my.plugin
+#!desc=没有说明。
+#!tag=去广告
+#!author=fmz200等各大神摘录，再此感谢
+#!system=
+#!system_version=
+#!loon_version=3.2.4(787)
+#!icon=https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/christtheredeemer.png
+#!date=2024-12-01 09:30:00
 [Rule]
 # 喜马拉雅
 IP-CIDR,114.114.114.114/32,REJECT,no-resolve
