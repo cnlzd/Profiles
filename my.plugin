@@ -1,0 +1,72 @@
+
+[Rule]
+# 喜马拉雅
+IP-CIDR,114.114.114.114/32,REJECT,no-resolve
+# 屏蔽 iOS 升级（系统，非商店）
+DOMAIN,mesu.apple.com,屏蔽iOS更新
+DOMAIN,gdmf.apple.com,屏蔽iOS更新
+DOMAIN,updates-http.cdn-apple.com,屏蔽iOS更新
+# 腾讯视频
+DOMAIN,vv.video.qq.com,DIRECT
+DOMAIN,gdt.qq.com,DIRECT
+#DOMAIN,l.qq.com,DIRECT
+
+
+[Rewrite]
+
+# > 掌上公交
+# hostname = quanguo.mygolbs.com, wx.mygolbs.com
+# 我的横幅广告
+^https?:\/\/quanguo\.mygolbs\.com:8081\/MyBusServer\/servlet\/MyGoServer\.HttpPool\.HttpHandlerServlet reject-200
+# > 招商银行
+# hostname = webappcfg.paas.cmbchina.com, mbmodule-openapi.paas.cmbchina.com
+# 开屏广告
+^https?:\/\/webappcfg\.paas\.cmbchina\.com\/v\d\/func\/getmarketconfig reject-200
+# 首页横幅广告
+^https?:\/\/mbmodule-openapi\.paas\.cmbchina\.com\/graphic\/v2\/module\/graphic reject-dict
+# > 翼支付
+# hostname = mapi-app.bestpay.com.cn
+# 弹窗广告（APP降级10.66.80版本） 如开启可自行添加主机名
+^https?:\/\/mapi-app\.bestpay\.com\.cn\/gapi\/appclient\/noEnc\/getAppPopup reject-dict
+# 开屏广告（APP降级10.66.80版本）
+^https?:\/\/mapi-app\.bestpay\.com\.cn\/gapi\/appClient\/noEnc\/getHomePageAds reject-dict
+# > 唯品会
+# hostname = b.appsimg.com, mapi.appvipshop.com
+^https?:\/\/b\.appsimg\.com\/upload\/momin reject
+^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/activity\/advertisement\/get reject-200
+^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/iosAdInfo\/report reject
+# APP+小程序弹窗广告
+^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/layout\/productList\/eventData\/v reject-200
+# 右下角悬浮窗，需手动关闭广告一次
+^https?:\/\/mapi\.appvipshop\.com\/vips-mobile\/rest\/activity\/coupon\/float_entrance\/get\?api_key reject-200
+# > 票根
+# hostname = pss.txffp.com
+^https?:\/\/pss\.txffp\.com\/piaogen\/images\/launchScreen/ reject-200
+# > 美团充电宝小程序
+# hostname = cdb.meituan.com
+^https?:\/\/cdb\.meituan\.com\/marketing\/source\/getPageSlotList reject-dict
+# > 故宫博物馆小程序
+# 开屏广告
+^https?:\/\/gugongmini\.dpm\.org\.cn\/gugong_applet\/open-screen reject-dict
+# > e充电
+# hostname = cdn-evone-ceph.echargenet.com
+^https?:\/\/cdn-evone-ceph\.echargenet\.com\/gw-emas-cdn\/63c4e3b558bb610008969f89 reject-200
+^https?:\/\/cdn-evone-ceph\.echargenet\.com\/gw-emas-cdn reject-200
+# > 大麦
+# hostname = acs.m.taobao.com, amdc.m.taobao.com
+^https?:\/\/acs\.m\.taobao\.com\/gw\/mtop\.damai\.wireless\.home\.welcome reject-200
+^https?:\/\/amdc\.m\.taobao\.com\/amdc\/mobileDispatch\?appkey=23782110 reject
+
+
+[Script]
+#
+
+# > 掌上公交
+http-response ^https?:\/\/wx\.mygolbs\.com\/WxBusServer\/ApiData\.do script-path=https://raw.githubusercontent.com/fmz200/wool_scripts/main/Scripts/zhangshanggongjiao.js, requires-body=true, timeout=60, tag=掌上公交小程序广告
+# > 彩云天气
+http-request ^https?:\/\/wrapper\.cyapi\.cn\/v1\/activity\? script-path=http://script.hub/convert/_start_/https://raw.githubusercontent.com/Keywos/rule/main/mocks/caiyun.json/_end_/caiyun.json?type=mock&target-app=loon-plugin, timeout=60, tag=彩云天气
+
+
+[MITM]
+hostname = acs.m.taobao.com,amdc.m.taobao.com,cdn-evone-ceph.echargenet.com,cdb.meituan.com,pss.txffp.com,b.appsimg.com,mapi.appvipshop.com,mapi-app.bestpay.com.cn,webappcfg.paas.cmbchina.com,mbmodule-openapi.paas.cmbchina.com,quanguo.mygolbs.com,wx.mygolbs.com
+
