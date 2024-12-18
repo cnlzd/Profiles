@@ -15,10 +15,9 @@ DOMAIN,mesu.apple.com,屏蔽iOS更新
 DOMAIN,gdmf.apple.com,屏蔽iOS更新
 DOMAIN,updates-http.cdn-apple.com,屏蔽iOS更新
 # 腾讯视频
-DOMAIN,vv.video.qq.com,DIRECT
-DOMAIN,gdt.qq.com,DIRECT
-#DOMAIN,l.qq.com,DIRECT
-
+DOMAIN-SUFFIX,vv.video.qq.com,DIRECT
+DOMAIN-SUFFIX,gdt.qq.com,DIRECT
+#DOMAIN-SUFFIX,l.qq.com,DIRECT
 
 [Rewrite]
 
