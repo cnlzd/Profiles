@@ -17,7 +17,7 @@ DOMAIN,updates-http.cdn-apple.com,屏蔽iOS更新
 # 腾讯视频
 DOMAIN-SUFFIX,vv.video.qq.com,DIRECT
 DOMAIN-SUFFIX,gdt.qq.com,DIRECT
-#DOMAIN-SUFFIX,l.qq.com,DIRECT
+DOMAIN-SUFFIX,l.qq.com,DIRECT
 
 [Rewrite]
 
